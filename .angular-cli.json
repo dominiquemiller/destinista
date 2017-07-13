@@ -25,6 +25,7 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "develop": "environments/environment.ts",
+        "dev": "environments/environment.ts",
         "production": "environments/environment.prod.ts"
       }
     }
