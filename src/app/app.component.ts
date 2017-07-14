@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Destinista!';
+
+  getGamer(gamer) {
+    console.log(gamer);
+  }
 }

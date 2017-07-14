@@ -1,0 +1,18 @@
+<div class="main gamer-info">
+
+    <div class="form-box">
+      <form [formGroup]="form" 
+            (ngSubmit)="formSubmit(form.value, form.valid)"
+            novalidate>
+        <div class="form-group">
+            <select formControlName="network">
+                <option value="">Choose Game Network</option>
+                <option value="xbox">X-BOX</option>
+                <option value="psn">PSN</option>
+            </select> 
+            <input type="text" class="form-control" formControlName="tag">
+        </div>
+        <button type="submit">submit</button>
+      </form>
+    </div>
+</div>
