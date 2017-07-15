@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { GamerInfoComponent } from './components/gamer-info/gamer-info.component';
 
 // Services
-import { GamerTagService } from './services/gamer-tag.service';
+import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
+import { GamerInfoService } from './services/gamer-info/gamer-info.service';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,12 @@ import { GamerTagService } from './services/gamer-tag.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
-    GamerTagService
+    GamerTagService,
+    GamerInfoService
   ],
   bootstrap: [AppComponent]
 })

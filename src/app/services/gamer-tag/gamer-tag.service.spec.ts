@@ -1,5 +1,5 @@
 import { GamerTagService } from './gamer-tag.service';
-import { Gamer } from '../models/gamer.interface';
+import { Gamer } from '../../models/gamer.interface';
 
 describe('GamerService', () => {
     let service: GamerTagService;

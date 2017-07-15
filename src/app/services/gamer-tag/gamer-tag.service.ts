@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Gamer } from '../models/gamer.interface';
+import { Gamer } from '../../models/gamer.interface';
 
 @Injectable()
 export class GamerTagService {

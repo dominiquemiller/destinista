@@ -2,4 +2,4 @@ export const environment = {
   production: true
 };
 
-export const API_URL = 'PRODUCTION_URL';
+export const API_URL = 'https://destinista-api.herokuapp.com';
