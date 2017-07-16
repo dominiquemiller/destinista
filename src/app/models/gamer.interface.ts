@@ -1,4 +1,6 @@
+import { Network } from './network.enum';
+
 export interface Gamer {
-    network: string;
+    network: Network;
     gamerTag: string;
 }

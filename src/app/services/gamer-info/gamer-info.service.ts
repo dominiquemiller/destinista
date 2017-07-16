@@ -3,18 +3,20 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { API_URL } from '../../../environments/environment';
+import { Gamer } from '../../models/gamer.interface';
 
 @Injectable()
 export class GamerInfoService {
     constructor(private http: Http) { }
 
-    get(gamer) {
+    get(gamer: Gamer) {
         const url = `${API_URL}/gamerinfo`;
 
         return this.http
-                   .get(url)
+                   .post(url, gamer )
                    .map( (response: Response) => response.json())
                    .catch( (error: any) => Observable.throw(error));
     }
