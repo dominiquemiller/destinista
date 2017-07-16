@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {}
 
   getGamer(gamer) {
-    console.log(gamer);
-    this.service.get(gamer).subscribe( data => console.log(data));
+    this.service.get(gamer).subscribe( data => console.log(data), error => console.log(error));
   }
 
 }
