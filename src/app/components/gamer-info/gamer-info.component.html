@@ -4,14 +4,12 @@
       <form [formGroup]="form" 
             (ngSubmit)="formSubmit(form.value, form.valid)"
             novalidate>
-        <div class="form-group">
             <select formControlName="network">
                 <option value="">Choose Game Network</option>
                 <option value="{{ network.XBOX }}">X-BOX</option>
                 <option value="{{ network.Playstation }}">PSN</option>
             </select> 
             <input type="text" class="form-control" formControlName="tag">
-        </div>
         <button type="submit">submit</button>
       </form>
     </div>
