@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GamerInfoService } from './services/gamer-info/gamer-info.service';
+import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
 import { SpinnerService } from './easy-spinner/services/spinner.service';
+
+import { BungieApi } from './models/bungie.api.interface';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +13,10 @@ import { SpinnerService } from './easy-spinner/services/spinner.service';
 })
 export class AppComponent implements OnInit {
   title = 'Destinista!';
+  signInSuccess: boolean;
 
-  constructor(private service: GamerInfoService,
+  constructor(private infoService: GamerInfoService,
+              private tagService: GamerTagService,
               private spinner: SpinnerService
               ) {};
 
@@ -19,10 +24,19 @@ export class AppComponent implements OnInit {
 
   getGamer(gamer) {
     this.spinner.show();
-    this.service.get(gamer).subscribe( data => {
+    this.infoService.get(gamer).subscribe( (data: BungieApi) => {
       this.spinner.hide();
+      this.signInSuccess = true;
       console.log(data);
+      this.saveId(gamer, data.Response.data.membershipId)
     }, error => console.log(error));
   }
+
+  saveId(gamer, id) {
+     gamer = Object.assign({}, gamer, { membershipId: id });
+     this.tagService.set(gamer);
+  }
+
+
 
 }

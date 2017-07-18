@@ -1,11 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-</div>
-
-<app-gamer-info (submitted)="getGamer($event)"></app-gamer-info>
+<app-gamer-info 
+  (submitted)="getGamer($event)" 
+  [hidden]="signInSuccess"></app-gamer-info>
 
 <router-outlet></router-outlet>
 
