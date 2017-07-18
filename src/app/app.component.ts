@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GamerInfoService } from './services/gamer-info/gamer-info.service';
 import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
 
   constructor(private infoService: GamerInfoService,
               private tagService: GamerTagService,
-              private spinner: SpinnerService
+              private spinner: SpinnerService,
+              private router: Router
               ) {};
 
   ngOnInit() {}
@@ -28,7 +30,8 @@ export class AppComponent implements OnInit {
       this.spinner.hide();
       this.signInSuccess = true;
       console.log(data);
-      this.saveId(gamer, data.Response)
+      this.saveId(gamer, data.Response);
+      this.router.navigateByUrl('menu');
     }, error => {
       this.spinner.hide();
       console.log(error)
