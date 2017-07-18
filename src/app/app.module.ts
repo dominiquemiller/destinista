@@ -4,6 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
+// Modules
+import { SpinnerModule } from './easy-spinner/spinner.module';
+
 // Components
 import { AppComponent } from './app.component';
 import { GamerInfoComponent } from './components/gamer-info/gamer-info.component';
@@ -21,7 +24,8 @@ import { GamerInfoService } from './services/gamer-info/gamer-info.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    SpinnerModule
   ],
   providers: [
     GamerTagService,
