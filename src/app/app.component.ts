@@ -28,15 +28,16 @@ export class AppComponent implements OnInit {
       this.spinner.hide();
       this.signInSuccess = true;
       console.log(data);
-      this.saveId(gamer, data.Response.data.membershipId)
-    }, error => console.log(error));
+      this.saveId(gamer, data.Response)
+    }, error => {
+      this.spinner.hide();
+      console.log(error)
+    });
   }
 
   saveId(gamer, id) {
      gamer = Object.assign({}, gamer, { membershipId: id });
      this.tagService.set(gamer);
   }
-
-
 
 }

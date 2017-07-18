@@ -13,7 +13,7 @@ export class GamerInfoService {
     constructor(private http: Http) { }
 
     get(gamer: Gamer) {
-        const url = `${API_URL}/gamerinfo`;
+        const url = `${API_URL}/sign_in`;
 
         return this.http
                    .post(url, gamer )
