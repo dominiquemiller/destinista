@@ -14,7 +14,7 @@ import { BungieApi } from './models/bungie.api.interface';
 })
 export class AppComponent implements OnInit {
   title = 'Destinista!';
-  signInSuccess: boolean;
+  hideSignIn = true;
 
   constructor(private infoService: GamerInfoService,
               private tagService: GamerTagService,
@@ -22,13 +22,17 @@ export class AppComponent implements OnInit {
               private router: Router
               ) {};
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!this.tagService.get()) {
+      this.hideSignIn = false;
+    }
+  }
 
   getGamer(gamer) {
     this.spinner.show();
     this.infoService.get(gamer).subscribe( (data: BungieApi) => {
       this.spinner.hide();
-      this.signInSuccess = true;
+      this.hideSignIn = true;
       this.saveId(gamer, data.Response);
       this.router.navigateByUrl(`menu/${gamer.network}/${data.Response}`);
     }, error => {
