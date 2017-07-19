@@ -1,5 +1,10 @@
 <div class="menu-background">
-    <div *ngFor="let banner of banners">
-        <img src="http://www.bungie.net{{ banner }}" alt="">
+    <div *ngFor="let char of characters" class="char-card">
+        <img src="http://www.bungie.net{{ char.backgroundPath }}" alt="">
+        <div class="info">
+            <p>{{ decodeClass(char.characterBase.classType) }}</p>
+            <p>Level {{ char.baseCharacterLevel }}</p>
+            <p>Light {{ char.characterBase.powerLevel}}<p>
+        </div>
     </div>
 </div>

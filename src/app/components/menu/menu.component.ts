@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { BungieApi } from '../../models/bungie.api.interface';
+import { CharClass } from '../../modelS/char-class.enum';
 
 @Component({
     selector: 'app-menu',
@@ -11,18 +12,25 @@ import { BungieApi } from '../../models/bungie.api.interface';
 
 export class MenuComponent implements OnInit {
     banners: Array<string> = [];
+    charClass;
     summary;
+    characters;
 
-    constructor(private route: ActivatedRoute ) { }
+    constructor(private route: ActivatedRoute ) { 
+        this.charClass = CharClass;
+    }
 
     ngOnInit() {
         this.route.data.subscribe( (data: { summary: BungieApi }) => {
            this.summary = data.summary.Response.data;
-           this.setupBanners(this.summary.characters);
+           console.log(this.summary);
+           this.characters = this.summary.characters;
         } )
     }
 
-    setupBanners(chars: Array<string>) {
-        chars.forEach( (item: any) => this.banners = [ ...this.banners, item.backgroundPath ])
-    };
+    decodeClass(value: number) {
+        let classes: string [] = Object.keys(this.charClass);
+        classes = classes.slice( classes.length / 2 );
+        return classes[value];
+    }
 }
