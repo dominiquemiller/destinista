@@ -13,11 +13,20 @@ export class GamerInfoService {
     constructor(private http: Http) { }
 
     get(gamer: Gamer) {
-        const url = `${API_URL}/gamerinfo`;
+        const url = `${API_URL}/sign_in`;
 
         return this.http
                    .post(url, gamer )
                    .map( (response: Response) => response.json())
                    .catch( (error: any) => Observable.throw(error));
+    }
+
+    summary(network, membershipId) {
+       const url = `${API_URL}/gamer_summary`;
+       const payload = { network: network, membershipId: membershipId }
+       return this.http
+                  .post(url, payload)
+                  .map( (response: Response) => response.json())
+                  .catch( (error: any) => Observable.throw(error));
     }
 }
