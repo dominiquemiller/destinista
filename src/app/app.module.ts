@@ -1,15 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 // Modules
 import { SpinnerModule } from './easy-spinner/spinner.module';
+import { SignInModule } from './sign-in/sign-in.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { GamerInfoComponent } from './components/gamer-info/gamer-info.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 // Services
@@ -20,15 +19,14 @@ import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.
 @NgModule({
   declarations: [
     AppComponent,
-    GamerInfoComponent,
     MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpModule,
-    SpinnerModule
+    SpinnerModule,
+    SignInModule
   ],
   providers: [
     GamerTagService,

@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Gamer } from '../../models/gamer.interface';
-import { Network } from '../../models/network.enum';
+import { Gamer } from '../../../models/gamer.interface';
+import { Network } from '../../../models/network.enum';
 
 @Component({
     selector: 'app-gamer-info',
     styleUrls: ['gamer-info.component.scss'],
-    templateUrl: 'gamer-info.component.html'
+    templateUrl: './gamer-info.component.html'
 })
 
 export class GamerInfoComponent implements OnInit {
