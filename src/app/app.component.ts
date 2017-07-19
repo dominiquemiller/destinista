@@ -29,9 +29,8 @@ export class AppComponent implements OnInit {
     this.infoService.get(gamer).subscribe( (data: BungieApi) => {
       this.spinner.hide();
       this.signInSuccess = true;
-      console.log(data);
       this.saveId(gamer, data.Response);
-      this.router.navigateByUrl('menu');
+      this.router.navigateByUrl(`menu/${gamer.network}/${data.Response}`);
     }, error => {
       this.spinner.hide();
       console.log(error)

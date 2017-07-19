@@ -20,4 +20,13 @@ export class GamerInfoService {
                    .map( (response: Response) => response.json())
                    .catch( (error: any) => Observable.throw(error));
     }
+
+    summary(network, membershipId) {
+       const url = `${API_URL}/gamer_summary`;
+       const payload = { network: network, membershipId: membershipId }
+       return this.http
+                  .post(url, payload)
+                  .map( (response: Response) => response.json())
+                  .catch( (error: any) => Observable.throw(error));
+    }
 }

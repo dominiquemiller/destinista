@@ -15,6 +15,7 @@ import { MenuComponent } from './components/menu/menu.component';
 // Services
 import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
 import { GamerInfoService } from './services/gamer-info/gamer-info.service';
+import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { GamerInfoService } from './services/gamer-info/gamer-info.service';
   ],
   providers: [
     GamerTagService,
-    GamerInfoService
+    GamerInfoService,
+    GamerSummaryResolver
   ],
   bootstrap: [AppComponent]
 })
