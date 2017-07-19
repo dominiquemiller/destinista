@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
               ) {};
 
   ngOnInit() {
+    // need to add a log out button
     if (!this.tagService.get()) {
       this.hideSignIn = false;
     }
