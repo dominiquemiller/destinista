@@ -4,7 +4,7 @@ import { Gamer } from '../../models/gamer.interface';
 describe('GamerService', () => {
     let service: GamerTagService;
     const gamer: Gamer = {
-        network: 'xbox',
+        network: 1,
         gamerTag: 'mr1monkey'
     };
 
