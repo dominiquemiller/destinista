@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { BungieApi } from '../../models/bungie.api.interface';
-import { CharClass } from '../../modelS/char-class.enum';
+import { CharClass } from '../../models/char-class.enum';
 
 @Component({
     selector: 'app-menu',
