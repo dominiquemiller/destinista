@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
     summary;
     characters;
 
-    constructor(private route: ActivatedRoute ) { 
+    constructor(private route: ActivatedRoute ) {
         this.charClass = CharClass;
     }
 
