@@ -11,7 +11,6 @@ import { CharClass } from '../../models/char-class.enum';
 })
 
 export class MenuComponent implements OnInit {
-    banners: Array<string> = [];
     charClass;
     summary;
     characters;
