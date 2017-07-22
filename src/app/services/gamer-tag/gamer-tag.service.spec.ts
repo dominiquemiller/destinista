@@ -29,7 +29,7 @@ describe('GamerService', () => {
        const info = service.get();
 
        expect(localStorage.getItem).toHaveBeenCalled();
-       expect(info.network).toBe('xbox');
+       expect(info.network).toBe(1);
        expect(info.gamerTag).toBe('mr1monkey');
     });
 
