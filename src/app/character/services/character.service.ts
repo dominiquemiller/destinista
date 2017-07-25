@@ -12,7 +12,7 @@ export class CharacterService {
     constructor(private http: Http) { }
 
     inventory(gamer: Gamer) {
-        const url = `${API_URL}/localhost:3000/inventory`;
+        const url = `${API_URL}/inventory`;
         return this.http
                    .post(url, gamer)
                    .map( (response: Response) => response.json())
