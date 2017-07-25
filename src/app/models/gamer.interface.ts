@@ -4,4 +4,5 @@ export interface Gamer {
     network: Network;
     gamerTag: string;
     membershipId?: number;
+    characterId?: number;
 }
