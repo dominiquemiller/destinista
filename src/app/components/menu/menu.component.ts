@@ -22,7 +22,6 @@ export class MenuComponent implements OnInit {
     ngOnInit() {
         this.route.data.subscribe( (data: { summary: BungieApi }) => {
            this.summary = data.summary.Response.data;
-           console.log(this.summary);
            this.characters = this.summary.characters;
         } )
     }
