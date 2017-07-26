@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 
 import { CharacterComponent } from './containers/character.component';
+import { InventoryComponent } from './components/inventory.component';
 
 import { InventoryResolver } from './services/inventory.resolver.service';
 import { CharacterService } from './services/character.service';
@@ -23,7 +24,8 @@ const routes: Routes = [
     ],
     exports: [],
     declarations: [
-        CharacterComponent
+        CharacterComponent,
+        InventoryComponent
     ],
     providers: [
         InventoryResolver,

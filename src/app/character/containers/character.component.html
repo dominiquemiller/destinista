@@ -1,1 +1,5 @@
-<p>{{ inventory | json }}</p>
+
+<app-inventory 
+  *ngFor="let item of inventory"
+  [item]="item"
+  ></app-inventory>
