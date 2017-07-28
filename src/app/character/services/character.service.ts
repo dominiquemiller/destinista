@@ -19,4 +19,19 @@ export class CharacterService {
                    .catch( (error: any) => Observable.throw(error));
     }
 
+    activityStats(gamer: Gamer) {
+        const url = `${API_URL}/activity_stats`;
+        return this.http
+                   .post(url, gamer)
+                   .map( (response: Response) => response.json())
+                   .catch( (error: any) => Observable.throw(error));
+    }
+
+    historicalStats(gamer: Gamer) {
+        const url = `${API_URL}/historical_stats`;
+        return this.http
+                   .post(url, gamer)
+                   .map( (response: Response) => response.json())
+                   .catch( (error: any) => Observable.throw(error));
+    }
 }

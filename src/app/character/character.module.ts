@@ -6,13 +6,17 @@ import { CharacterComponent } from './containers/character.component';
 import { InventoryComponent } from './components/inventory.component';
 
 import { InventoryResolver } from './services/inventory.resolver.service';
+import { ActivityStatsResolver } from './services/activity-stats.resolver.service';
+import { HistoricalStatsResolver } from './services/historical-stats.resolver.service';
 import { CharacterService } from './services/character.service';
 
 const routes: Routes = [
     { path: 'character/:id',
       component: CharacterComponent,
       resolve: {
-        items: InventoryResolver
+        items: InventoryResolver,
+        activityStats: ActivityStatsResolver,
+        historicalStats: HistoricalStatsResolver
       }
     }
 ];
@@ -29,6 +33,8 @@ const routes: Routes = [
     ],
     providers: [
         InventoryResolver,
+        ActivityStatsResolver,
+        HistoricalStatsResolver,
         CharacterService
     ],
 })

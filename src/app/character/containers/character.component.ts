@@ -13,8 +13,8 @@ export class CharacterComponent implements OnInit {
 
     ngOnInit() {
         this.route.data.subscribe( data => {
-            this.inventory = data.items
-            console.log(this.inventory);
+            this.inventory = data.items;
+            console.log(data);
         });
      }
 }
