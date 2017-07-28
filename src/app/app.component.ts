@@ -17,11 +17,8 @@ export class AppComponent implements OnInit {
                private gamerTag: GamerTagService ) {};
 
   ngOnInit() {
-     if ( this.gamerTag.get() ) {
-          const gamer = this.gamerTag.get();
-          this.router.navigateByUrl(`menu/${gamer.network}/${gamer.membershipId}`);
-     } else {
-          this.router.navigateByUrl('sign-in');
+     if ( !this.gamerTag.get() ) {
+        this.router.navigateByUrl('sign-in');
      }
 
      this.router.events.subscribe( event => {
