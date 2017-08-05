@@ -6,16 +6,15 @@ import { SignInComponent } from './sign-in/containers/sign-in.component';
 import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.service';
 
 const routes: Routes = [
-  {
-    path: '' ,
-    children: [
-      { path: 'sign-in', component: SignInComponent },
-      { path: 'menu/:network/:membershipId',
-        resolve: {
-          summary: GamerSummaryResolver
-        },
-        component: MenuComponent }
-    ]
+  { path: '', pathMatch: 'full', redirectTo: 'sign-in' },
+  { path: 'menu/:network/:membershipId',
+    resolve: {
+      summary: GamerSummaryResolver
+    },
+    component: MenuComponent
+  },
+  { path: 'character/:id',
+      loadChildren: './character/character.module#CharacterModule'
   }
 ];
 
