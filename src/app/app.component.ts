@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
+import { SpinnerService } from './easy-spinner/services/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +12,22 @@ import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
 export class AppComponent implements OnInit {
   title = 'Destinista!';
 
-  constructor( private router: Router, private gamerTag: GamerTagService ) {};
+  constructor( private router: Router,
+               private spinner: SpinnerService,
+               private gamerTag: GamerTagService ) {};
 
   ngOnInit() {
-     if ( this.gamerTag.get() ) {
-          const gamer = this.gamerTag.get();
-          this.router.navigateByUrl(`menu/${gamer.network}/${gamer.membershipId}`);
-     } else {
-          this.router.navigateByUrl('sign-in');
+     if ( !this.gamerTag.get() ) {
+        this.router.navigateByUrl('sign-in');
      }
+
+     this.router.events.subscribe( event => {
+       if (event instanceof NavigationStart ) {
+         this.spinner.show();
+       } else if (event instanceof NavigationEnd) {
+         this.spinner.hide();
+       }
+     })
   }
 
 }
