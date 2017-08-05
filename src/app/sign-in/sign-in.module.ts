@@ -7,7 +7,7 @@ import { GamerInfoComponent } from './components/gamer-info/gamer-info.component
 import { SignInComponent } from './containers/sign-in.component';
 
 const ROUTES: Routes = [
-    { path: 'sign-in', component: SignInComponent }
+    { path: '', component: SignInComponent }
 ];
 
 @NgModule({
