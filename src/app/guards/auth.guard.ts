@@ -10,10 +10,12 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
         const gamer: Gamer  = this.gamerService.get();
+
         if ( gamer ) {
-          this.router.navigate([`/menu/${gamer.network}/${gamer.membershipId}`])
-        } else {
-          return true;
+          this.router.navigate([`/menu/${gamer.network}/${gamer.membershipId}`]);
+          return false;
         }
+
+        return true;
     }
 }
