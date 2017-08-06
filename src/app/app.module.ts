@@ -17,6 +17,9 @@ import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
 import { GamerInfoService } from './services/gamer-info/gamer-info.service';
 import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.service';
 
+// Gaurds
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +29,13 @@ import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    SpinnerModule,
-    SignInModule,
-    CharacterModule
+    SpinnerModule
   ],
   providers: [
     GamerTagService,
     GamerInfoService,
-    GamerSummaryResolver
+    GamerSummaryResolver,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

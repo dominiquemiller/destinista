@@ -17,10 +17,6 @@ export class AppComponent implements OnInit {
                private gamerTag: GamerTagService ) {};
 
   ngOnInit() {
-     if ( !this.gamerTag.get() ) {
-        this.router.navigateByUrl('sign-in');
-     }
-
      this.router.events.subscribe( event => {
        if (event instanceof NavigationStart ) {
          this.spinner.show();

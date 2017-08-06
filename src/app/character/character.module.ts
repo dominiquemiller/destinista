@@ -11,7 +11,7 @@ import { HistoricalStatsResolver } from './services/historical-stats.resolver.se
 import { CharacterService } from './services/character.service';
 
 const routes: Routes = [
-    { path: 'character/:id',
+    { path: '',
       component: CharacterComponent,
       resolve: {
         items: InventoryResolver,
