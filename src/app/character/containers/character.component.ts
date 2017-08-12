@@ -9,12 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 
 export class CharacterComponent implements OnInit {
     inventory;
+    activityStats;
+    historicalStats;
+
     constructor( private route: ActivatedRoute ) { }
 
     ngOnInit() {
         this.route.data.subscribe( data => {
             this.inventory = data.items;
-            console.log(data);
+            this.activityStats = data.activityStats;
+            this.historicalStats = data.historicalStats;
         });
      }
 }

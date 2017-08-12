@@ -1,8 +1,18 @@
-<app-activity-stats></app-activity-stats>
+<div class="stats">
+  <app-activity-stats
+    [activityStats]="activityStats"
+  ></app-activity-stats>
+</div>
 
-<app-inventory 
-  *ngFor="let item of inventory"
-  [item]="item"
-  ></app-inventory>
+<div class="inventory">
+  <app-inventory 
+    *ngFor="let item of inventory"
+    [item]="item"
+    ></app-inventory>
+</div>
 
-<app-historical-stats></app-historical-stats>
+<div class="stats">
+  <app-historical-stats
+    [historicalStats]="historicalStats"
+  ></app-historical-stats>
+</div>

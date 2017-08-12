@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-inventory',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: 'inventory.component.html'
 })
 
