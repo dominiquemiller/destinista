@@ -7,8 +7,10 @@ import { CharacterService } from './character.service';
 import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
 import { Gamer } from '../../models/gamer.interface';
 
+import { Inventory } from '../models/inventory.interface';
+
 @Injectable()
-export class InventoryResolver implements Resolve<any> {
+export class InventoryResolver implements Resolve<Inventory[]> {
     gamer: Gamer;
     constructor(private charService: CharacterService ,
                 private router: Router,
