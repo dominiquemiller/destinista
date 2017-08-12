@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 
 import { CharacterComponent } from './containers/character.component';
-import { InventoryComponent } from './components/inventory.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
+import { ActivityStatsComponent } from './components/activity-stats/activity-stats.component';
+import { HistoricalStatsComponent } from './components/historical-stats/historical-stats.component';
 
 import { InventoryResolver } from './services/inventory.resolver.service';
 import { ActivityStatsResolver } from './services/activity-stats.resolver.service';
@@ -29,7 +31,9 @@ const routes: Routes = [
     exports: [],
     declarations: [
         CharacterComponent,
-        InventoryComponent
+        InventoryComponent,
+        ActivityStatsComponent,
+        HistoricalStatsComponent
     ],
     providers: [
         InventoryResolver,
