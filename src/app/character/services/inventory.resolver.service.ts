@@ -7,8 +7,10 @@ import { CharacterService } from './character.service';
 import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
 import { Gamer } from '../../models/gamer.interface';
 
+import { Inventory } from '../models/inventory.interface';
+
 @Injectable()
-export class InventoryResolver implements Resolve<any> {
+export class InventoryResolver implements Resolve<Inventory[]> {
     gamer: Gamer;
     constructor(private charService: CharacterService ,
                 private router: Router,
@@ -16,7 +18,8 @@ export class InventoryResolver implements Resolve<any> {
                ) { this.gamer = this.gamerInfo.get()}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-      this.gamer = Object.assign({}, this.gamer, { characterId: route.params.id });
+      console.log(route.parent)
+      this.gamer = Object.assign({}, this.gamer, { characterId: route.parent.params.id });
       return  this.charService.inventory(this.gamer);
     }
 }
