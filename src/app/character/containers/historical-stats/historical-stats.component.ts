@@ -1,4 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { HistoricalStats } from '../../models/historical-stats.interface';
 
 @Component({
     selector: 'app-historical-stats',
@@ -8,12 +11,14 @@ import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core
 })
 
 export class HistoricalStatsComponent implements OnInit {
-    @Input()
-    historicalStats;
+    stats: HistoricalStats;
 
-    constructor() { }
+    constructor( private route: ActivatedRoute ) { }
 
     ngOnInit() {
-        console.log(this.historicalStats)
+        this.route.data.subscribe( data => {
+            this.stats = data.historicalStats.Response;
+            console.log(this.stats);
+        });
      }
 }

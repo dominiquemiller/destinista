@@ -1,4 +1,8 @@
-import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ActivityStats } from '../../models/activity-stats.interface';
+
 
 @Component({
     selector: 'app-activity-stats',
@@ -8,12 +12,14 @@ import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core
 })
 
 export class ActivityStatsComponent implements OnInit {
-    @Input()
-    activityStats;
+    stats: ActivityStats;
 
-    constructor() { }
+    constructor( private route: ActivatedRoute ) { }
 
     ngOnInit() {
-        console.log(this.activityStats)
+        this.route.data.subscribe( data => {
+            this.stats = data.activityStats;
+            console.log(this.stats);
+        });
      }
 }
