@@ -17,7 +17,7 @@ export class ActivityStatsResolver implements Resolve<ActivityStats> {
                ) { this.gamer = this.gamerInfo.get()}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-      this.gamer = Object.assign({}, this.gamer, { characterId: route.params.id });
+      this.gamer = Object.assign({}, this.gamer, { characterId: route.parent.params.id });
       return  this.charService.activityStats(this.gamer);
     }
 }

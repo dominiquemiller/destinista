@@ -1,6 +1,6 @@
 <div class="menu-background">
     <div *ngFor="let char of characters" class="char-card">
-      <a routerLink="/character/{{char.characterBase.characterId}}/inventory" >
+      <a routerLink="/character/{{char.characterBase.characterId}}/" >
         <img src="http://www.bungie.net{{ char.backgroundPath }}" alt="">
         <div class="info">
             <p>{{ decodeClass(char.characterBase.classType) }}</p>

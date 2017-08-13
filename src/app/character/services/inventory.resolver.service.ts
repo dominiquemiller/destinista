@@ -18,7 +18,8 @@ export class InventoryResolver implements Resolve<Inventory[]> {
                ) { this.gamer = this.gamerInfo.get()}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-      this.gamer = Object.assign({}, this.gamer, { characterId: route.params.id });
+      console.log(route.parent)
+      this.gamer = Object.assign({}, this.gamer, { characterId: route.parent.params.id });
       return  this.charService.inventory(this.gamer);
     }
 }

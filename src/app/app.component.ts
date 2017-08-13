@@ -11,6 +11,8 @@ import { SpinnerService } from './easy-spinner/services/spinner.service';
 })
 export class AppComponent implements OnInit {
   title = 'Destinista!';
+  displayMenu = false;
+  charId: string;
 
   constructor( private router: Router,
                private spinner: SpinnerService,
@@ -24,6 +26,7 @@ export class AppComponent implements OnInit {
          this.spinner.hide();
        }
      })
+
   }
 
 }
