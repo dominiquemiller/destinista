@@ -1,8 +1,8 @@
 export interface HistoricalStats {
-    allArena: object;
-    allPvP: object;
-    allStrikes: object;
-    patrol: object;
-    raid: object;
-    story: object;
+    allArena: any;
+    allPvP: any;
+    allStrikes: any;
+    patrol: any;
+    raid: any;
+    story: any;
 }
