@@ -10,7 +10,7 @@ import { CharacterModule } from './character/character.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuComponent } from './containers/menu/menu.component';
 
 // Services
 import { GamerTagService } from './services/gamer-tag/gamer-tag.service';

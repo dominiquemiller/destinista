@@ -1,0 +1,10 @@
+<form [formGroup]="statForm" novalidate>
+    <select formControlName="activityType">
+       <option value="">Pick an Activity</option>
+       <option *ngFor="let item of statTypes" value="{{ item }}">{{ item }}</option>
+    </select>
+</form>
+
+<h1>{{ selectedType }}</h1>
+
+<app-historical-stat [activity]="stats[selectedType]"></app-historical-stat>

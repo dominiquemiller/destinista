@@ -1,10 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
 import { SpinnerService } from './easy-spinner/services/spinner.service';
 import { AppComponent } from './app.component';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 // stubbed child component
 @Component({
@@ -15,7 +17,8 @@ class AppSpinnerComponent {};
 
 // mock services and spy on method
 const router = {
-  navigateByUrl: jasmine.createSpy('navigateByUrl')
+  navigateByUrl: jasmine.createSpy('navigateByUrl'),
+  events: Observable.of(new NavigationStart(1, '/'))
 }
 
 const spinner = {

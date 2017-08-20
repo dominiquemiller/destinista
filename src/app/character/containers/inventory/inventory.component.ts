@@ -11,14 +11,11 @@ import { Inventory } from '../../models/inventory.interface';
 export class InventoryComponent implements OnInit {
     inventory: Inventory;
 
-    constructor( private route: ActivatedRoute ) { 
-        console.log('inv', this.route.snapshot);
-    }
+    constructor( private route: ActivatedRoute ) {}
 
     ngOnInit() {
-        this.route.data.subscribe( data => {
+        this.route.data.subscribe( (data: { inventory: Inventory }) => {
             this.inventory = data.inventory;
-            console.log(this.inventory);
         });
     }
 }

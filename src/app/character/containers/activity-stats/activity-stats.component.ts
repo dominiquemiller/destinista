@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { ActivityStats } from '../../models/activity-stats.interface';
 
@@ -13,13 +14,24 @@ import { ActivityStats } from '../../models/activity-stats.interface';
 
 export class ActivityStatsComponent implements OnInit {
     stats: ActivityStats;
+    statForm: FormGroup;
+    selectedActivity: string;
 
-    constructor( private route: ActivatedRoute ) { }
+    constructor( private route: ActivatedRoute, private fb: FormBuilder ) { 
+        this.createForm();
+    }
 
     ngOnInit() {
         this.route.data.subscribe( data => {
             this.stats = data.activityStats;
-            console.log(this.stats);
+        });
+
+        this.statForm.get('activityType').valueChanges.subscribe( (value) => this.selectedActivity = value );
+    }
+
+    createForm() {
+        this.statForm =  this.fb.group({
+             activityType: ''
         });
      }
 }
