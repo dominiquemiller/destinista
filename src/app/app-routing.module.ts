@@ -20,11 +20,11 @@ const routes: Routes = [
   { path: 'sign-in',
       canActivate: [ AuthGuard ],
       loadChildren: './sign-in/sign-in.module#SignInModule'
-  },
-  {
-    path: 'chat',
-    loadChildren: './chat/chat.module#ChatModule'
   }
+  // {
+  //   path: 'chat',
+  //   loadChildren: './chat/chat.module#ChatModule'
+  // }
 
 ];
 

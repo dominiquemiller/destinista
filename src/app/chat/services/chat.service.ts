@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { WebSocketService } from '../../services/websocket/websocket.service';
 
-const CHAT_URL = 'ws://localhost:3000/';
+const CHAT_URL = 'ws://localhost:3000/chat-room';
 
 export interface Message {
     author: string,
@@ -17,7 +17,7 @@ export class ChatService {
     constructor(socket: WebSocketService ) {
         this.messages = <Subject<Message>>
         socket.connect(CHAT_URL)
-              .map((response: MessageEvent): Message => {
+              .map((response): Message => {
                   const data = JSON.parse(response.data);
                   return {
                     author: data.author,

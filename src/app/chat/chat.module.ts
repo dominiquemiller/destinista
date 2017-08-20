@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-
+// components
 import { ChatComponent } from './containers/chat.component';
 
+// services
+import { ChatService } from './services/chat.service';
+
 const ROUTES: Routes = [
-  { path: '', component: ChatComponent }
+  { path: 'chat', component: ChatComponent }
 ];
 
 @NgModule({
@@ -18,6 +21,8 @@ const ROUTES: Routes = [
     declarations: [
         ChatComponent
     ],
-    providers: [],
+    providers: [
+        ChatService
+    ],
 })
 export class ChatModule { }
