@@ -1,0 +1,10 @@
+<form [formGroup]="statForm" novalidate>
+    <select formControlName="activityType">
+       <option value="">Pick an Activity</option>
+       <option *ngFor="let item of stats; let i = index" value="{{ i }}">{{ item.json?.activityName }}</option>
+    </select>
+</form>
+
+<h1>{{ selectedActivity }}</h1>
+
+<app-activity-stat [activity]="stats[selectedActivity]"></app-activity-stat>

@@ -7,7 +7,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from
     template: `
     <div class="app-nav">
         <div class="wrapper">
-            <a routerLink="inventory" routerlinkActive="active">Inventory</a>
+            <a routerLink="inventory" routerlinkActive="active">Equipped</a>
             <a routerLink="activity" routerlinkActive="active">Activity Stats</a>
             <a routerLink="historical" routerlinkActive="active">Historical Stats</a>
             <a (click)="logoutUser()">Logout</a>

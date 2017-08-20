@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuComponent } from './containers/menu/menu.component';
 import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.service';
 
 import { AuthGuard } from './guards/auth.guard';

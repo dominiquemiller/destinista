@@ -11,6 +11,7 @@ import { HistoricalStatsComponent } from './containers/historical-stats/historic
 import { CharNavComponent } from './components/char-nav/char-nav.component';
 import { ItemComponent } from './components/item/item.component';
 import { HistoricalStatComponent } from './components/historical-stat/historical-stat.component';
+import { ActivityStatComponent } from './components/activity-stat/activity-stat.component';
 
 // services
 import { InventoryResolver } from './services/inventory.resolver.service';
@@ -43,7 +44,8 @@ const routes: Routes = [
         CharacterComponent,
         CharNavComponent,
         ItemComponent,
-        HistoricalStatComponent
+        HistoricalStatComponent,
+        ActivityStatComponent
     ],
     providers: [
         InventoryResolver,

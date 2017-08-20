@@ -16,7 +16,6 @@ export class InventoryComponent implements OnInit {
     ngOnInit() {
         this.route.data.subscribe( (data: { inventory: Inventory }) => {
             this.inventory = data.inventory;
-            console.log(this.inventory);
         });
     }
 }

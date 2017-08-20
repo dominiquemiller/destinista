@@ -5,7 +5,6 @@
     </select>
 </form>
 
-<p>{{ selectedType }}</p>
-<p> {{ stats[selectedType] | json }}
+<h1>{{ selectedType }}</h1>
 
 <app-historical-stat [activity]="stats[selectedType]"></app-historical-stat>
