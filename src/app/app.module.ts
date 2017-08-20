@@ -16,6 +16,7 @@ import { MenuComponent } from './containers/menu/menu.component';
 import { GamerTagService } from './services/gamer-tag/gamer-tag.service';
 import { GamerInfoService } from './services/gamer-info/gamer-info.service';
 import { GamerSummaryResolver } from './services/gamer-info/gamer-info-resolver.service';
+import { WebSocketService } from './services/websocket/websocket.service';
 
 // Gaurds
 import { AuthGuard } from './guards/auth.guard';
@@ -35,7 +36,8 @@ import { AuthGuard } from './guards/auth.guard';
     GamerTagService,
     GamerInfoService,
     GamerSummaryResolver,
-    AuthGuard
+    AuthGuard,
+    WebSocketService
   ],
   bootstrap: [AppComponent]
 })
