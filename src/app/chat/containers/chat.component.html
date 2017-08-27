@@ -1,4 +1,4 @@
-<h1>CHAT COMPONENT</h1>
+<h1>CHAT</h1>
 
 <section class="chat-room">
 
@@ -12,8 +12,6 @@
       (ngSubmit)="sendMsg(chatForm.value, chatForm.valid)" 
       novalidate>
     <input type="text" formControlName="body">
-    <p class="error" *ngIf="control.errors && !control.pristine">Yo! Enter something..</p>
+    <p class="error" *ngIf="control.errors.required && !control.pristine">Yo! Enter something..</p>
     <button type="submit">submit</button>
 </form>
-
-{{ messages | json }}

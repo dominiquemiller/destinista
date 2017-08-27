@@ -7,10 +7,11 @@ import * as io from 'socket.io-client';
 import { Gamer } from '../../models/gamer.interface';
 import { Network } from '../../models/network.enum';
 import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
+import { API_URL } from '../../../environments/environment'
 
 @Injectable()
 export class ChatService {
-  private url = 'http://localhost:3000/';
+  private url = API_URL;
   private io;
   private gamer: Gamer;
 
@@ -27,7 +28,6 @@ export class ChatService {
   getMessage(): Observable <any> {
     return new Observable(observer => {
       this.io.on('chatText', (data) => {
-        console.log(data);
         observer.next(data);
       });
     })

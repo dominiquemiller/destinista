@@ -25,7 +25,7 @@ export class ChatComponent implements OnInit {
 
     ngOnInit() {
         this.chat.getMessage().subscribe( (msg) => {
-            this.messages.push(msg);
+            this.messages = [...this.messages, msg];
          });
 
          this.gamerInfo = this.gamer.get();
@@ -39,6 +39,7 @@ export class ChatComponent implements OnInit {
               body: value.body
           };
           this.chat.sendMessage(message);
+          this.control.reset();
        }
     }
 
