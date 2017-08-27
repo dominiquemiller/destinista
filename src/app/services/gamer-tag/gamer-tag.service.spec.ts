@@ -5,7 +5,7 @@ describe('GamerService', () => {
     let service: GamerTagService;
     const gamer: Gamer = {
         network: 1,
-        gamerTag: 'mr1monkey'
+        tag: 'mr1monkey'
     };
 
     beforeEach( () =>  {
