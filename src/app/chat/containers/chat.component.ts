@@ -4,6 +4,7 @@ import { ChatService } from '../services/chat.service';
 import { Gamer } from '../../models/gamer.interface';
 import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
 import { Message } from '../models/message.interface';
+import { Network } from '../../models/network.enum';
 
 @Component({
     selector: 'app-chat',
@@ -12,7 +13,7 @@ import { Message } from '../models/message.interface';
 
 export class ChatComponent implements OnInit {
     messages: Message[] = [];
-
+    network: string;
     private gamerInfo;
 
     constructor( private chat: ChatService,
@@ -24,6 +25,7 @@ export class ChatComponent implements OnInit {
          });
 
          this.gamerInfo = this.gamer.get();
+         this.network = Network[this.gamerInfo.network];
      }
 
     sendMsg(value) {
