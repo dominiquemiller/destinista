@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 // Modules
 import { SpinnerModule } from './easy-spinner/spinner.module';
 import { SignInModule } from './sign-in/sign-in.module';
-import { ChatModule } from './chat/chat.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -29,8 +28,7 @@ import { AuthGuard } from './guards/auth.guard';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    SpinnerModule,
-    ChatModule
+    SpinnerModule
   ],
   providers: [
     GamerTagService,
