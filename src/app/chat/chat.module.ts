@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // components
 import { ChatComponent } from './containers/chat.component';
@@ -15,7 +16,8 @@ const ROUTES: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(ROUTES)
+        RouterModule.forChild(ROUTES),
+        ReactiveFormsModule
     ],
     exports: [],
     declarations: [

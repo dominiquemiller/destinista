@@ -1,5 +1,9 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+
 import { ChatService } from '../services/chat.service';
+import { Gamer } from '../../models/gamer.interface';
+import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
 
 @Component({
     selector: 'app-chat',
@@ -7,23 +11,41 @@ import { ChatService } from '../services/chat.service';
 })
 
 export class ChatComponent implements OnInit {
-    private message = {
-        author: 'tutorialedge',
-        message: 'this is a test message'
-    }
+    chatForm: FormGroup;
+    messages = [];
+    control: AbstractControl;
 
-    constructor( private chat: ChatService ) {
-        chat.messages.subscribe( (msg) => {
-            console.log(`Response from websocket: ${JSON.stringify(msg)}`);
-         });
-    }
+    private gamerInfo;
+
+    constructor( private chat: ChatService,
+                 private fb: FormBuilder,
+                 private gamer: GamerTagService ) {
+                     this.createForm();
+                 }
 
     ngOnInit() {
+        this.chat.getMessage().subscribe( (msg) => {
+            this.messages.push(msg);
+         });
+
+         this.gamerInfo = this.gamer.get();
+         this.control = this.chatForm.get('body');
      }
 
-    sendMsg() {
-        console.log(`new message from client to websocket: ${this.message} `);
-        this.chat.messages.next(this.message);
-        this.message.message = '';
+    sendMsg(value, valid) {
+       if (valid) {
+          const message = {
+              author: this.gamerInfo.tag,
+              body: value.body
+          };
+          this.chat.sendMessage(message);
+       }
     }
+
+    createForm() {
+        this.chatForm =  this.fb.group({
+             body: [ '', Validators.required ]
+        });
+     }
+
 }

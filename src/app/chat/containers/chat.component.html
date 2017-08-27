@@ -1,3 +1,19 @@
 <h1>CHAT COMPONENT</h1>
 
-<button (click)="sendMsg()">Send Message</button>
+<section class="chat-room">
+
+    <div *ngFor="let message of messages">
+      <p>{{ message.author }}: <span>{{ message.body}}</span></p>
+    </div>
+
+</section>
+
+<form [formGroup]="chatForm" 
+      (ngSubmit)="sendMsg(chatForm.value, chatForm.valid)" 
+      novalidate>
+    <input type="text" formControlName="body">
+    <p class="error" *ngIf="control.errors && !control.pristine">Yo! Enter something..</p>
+    <button type="submit">submit</button>
+</form>
+
+{{ messages | json }}
