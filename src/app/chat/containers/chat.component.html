@@ -1,5 +1,6 @@
-<h1>CHAT</h1>
 
-<app-chat-room [messages]="messages" 
-               (formSubmit)="sendMsg($event)"
-               ></app-chat-room>
+<app-chat-room 
+  [messages]="messages" 
+  (formSubmit)="sendMsg($event)">
+  <h1>CHAT</h1> 
+</app-chat-room>
