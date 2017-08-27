@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // components
 import { ChatComponent } from './containers/chat.component';
+import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 
 // services
 import { ChatService } from './services/chat.service';
@@ -21,7 +22,8 @@ const ROUTES: Routes = [
     ],
     exports: [],
     declarations: [
-        ChatComponent
+        ChatComponent,
+        ChatRoomComponent
     ],
     providers: [
         ChatService
