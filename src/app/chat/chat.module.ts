@@ -11,7 +11,7 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { ChatService } from './services/chat.service';
 
 const ROUTES: Routes = [
-  { path: 'chat', component: ChatComponent }
+  { path: '', component: ChatComponent }
 ];
 
 @NgModule({
