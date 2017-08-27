@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 import { ChatService } from '../services/chat.service';
 import { Gamer } from '../../models/gamer.interface';
 import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
+import { Message } from '../models/message.interface';
 
 @Component({
     selector: 'app-chat',
@@ -11,17 +11,12 @@ import { GamerTagService } from '../../services/gamer-tag/gamer-tag.service';
 })
 
 export class ChatComponent implements OnInit {
-    chatForm: FormGroup;
-    messages = [];
-    control: AbstractControl;
+    messages: Message[] = [];
 
     private gamerInfo;
 
     constructor( private chat: ChatService,
-                 private fb: FormBuilder,
-                 private gamer: GamerTagService ) {
-                     this.createForm();
-                 }
+                 private gamer: GamerTagService ) {}
 
     ngOnInit() {
         this.chat.getMessage().subscribe( (msg) => {
@@ -29,24 +24,11 @@ export class ChatComponent implements OnInit {
          });
 
          this.gamerInfo = this.gamer.get();
-         this.control = this.chatForm.get('body');
      }
 
-    sendMsg(value, valid) {
-       if (valid) {
-          const message = {
-              author: this.gamerInfo.tag,
-              body: value.body
-          };
-          this.chat.sendMessage(message);
-          this.control.reset();
-       }
+    sendMsg(value) {
+        value = Object.assign({}, value, { author: this.gamerInfo.tag });
+        this.chat.sendMessage(value);
     }
-
-    createForm() {
-        this.chatForm =  this.fb.group({
-             body: [ '', Validators.required ]
-        });
-     }
 
 }

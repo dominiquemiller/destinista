@@ -30,7 +30,7 @@ describe('GamerService', () => {
 
        expect(localStorage.getItem).toHaveBeenCalled();
        expect(info.network).toBe(1);
-       expect(info.gamerTag).toBe('mr1monkey');
+       expect(info.tag).toBe('mr1monkey');
     });
 
     it('should delete a gamers info', () => {

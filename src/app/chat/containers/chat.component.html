@@ -1,17 +1,6 @@
-<h1>CHAT</h1>
 
-<section class="chat-room">
-
-    <div *ngFor="let message of messages">
-      <p>{{ message.author }}: <span>{{ message.body}}</span></p>
-    </div>
-
-</section>
-
-<form [formGroup]="chatForm" 
-      (ngSubmit)="sendMsg(chatForm.value, chatForm.valid)" 
-      novalidate>
-    <input type="text" formControlName="body">
-    <p class="error" *ngIf="control.errors.required && !control.pristine">Yo! Enter something..</p>
-    <button type="submit">submit</button>
-</form>
+<app-chat-room 
+  [messages]="messages" 
+  (formSubmit)="sendMsg($event)">
+  <h1>CHAT</h1> 
+</app-chat-room>
