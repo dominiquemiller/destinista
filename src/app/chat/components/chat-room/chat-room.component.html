@@ -3,17 +3,17 @@
     <ng-content></ng-content>
 
     <section class="chat-room">
-            <div *ngFor="let message of messages">
-            <p>{{ message.author }}: <span>{{ message.body}}</span></p>
-            </div>
-        </section>
+        <div *ngFor="let message of messages">
+           <p>{{ message.author }}: <span>{{ message.body}}</span></p>
+        </div>
 
-    <form [formGroup]="chatForm"
-        (ngSubmit)="sendMsg(chatForm.value, chatForm.valid)"
-        novalidate>
-        <input type="text"
-            formControlName="body">
-        <p class="error" *ngIf="formInvalid">Yo! Enter something..</p>
-        <button type="submit">submit</button>
-    </form>
+        <form [formGroup]="chatForm"
+            (ngSubmit)="sendMsg(chatForm.value, chatForm.valid)"
+            novalidate>
+            <input type="text"
+                formControlName="body">
+            <p class="error" *ngIf="formInvalid">Yo! Enter something..</p>
+            <button type="submit">submit</button>
+        </form>
+    </section>
 </div>
